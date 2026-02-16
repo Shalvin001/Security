@@ -12,4 +12,4 @@ This folder contains my reconnaissance practice using Nmap and other tools
 - Hack The Box
 
 
-## NOTE: All testing has been performed on authorized lab environments.
+## NOTE: All demonstrations has been performed on authorized lab environments.
