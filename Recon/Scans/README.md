@@ -16,6 +16,21 @@ identify services and understand basic network enumeration.
 The target used here was scanme.nmap.org,
 a publicly available test server provided by the Nmap project for practice purposes.
 
+## Scans Performed
+### 1. Basic Scan
+Command used: 'nmap scanme.nmap.org'
+
+The three main purpose of this scan;
+- Host Discovery
+- Port scanning
+- Service detection
+
+It's like looking at the doors and windows of a house from the outside.
+You aren't going in yet, just checking on which windows(ports) are open and which ones are closed,
+and learn where you might use to enter the house or investigate further.
+
+### 2. OS detection
+command used: 'namp -O scanme.nmap.org'
 
 
 
