@@ -1,0 +1,10 @@
+# Nmap 7.95 scan initiated Sat Feb 21 09:13:49 2026 as: /usr/lib/nmap/nmap --privileged --top-ports 100 -T4 -oN scans/basic_scan.txt_2026-02-21_09-13-49 scanme.nmap.org
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.059s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 98 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+# Nmap done at Sat Feb 21 09:13:53 2026 -- 1 IP address (1 host up) scanned in 4.74 seconds
