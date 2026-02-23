@@ -7,10 +7,10 @@ identify services and understand basic network enumeration.
 ## This here is the command I used: nmap <scan_type> --top-ports 100 T4 -oA scanme.nmap.org Scans/\<filename>_$(date +%Y-%m-%d_%H-%M-%S)
 
 
-## Objective:
+## OBJECTIVE:
   - Perform basic network reconnaissance using different Nmap scan techniques.
 
-## Tools Used
+## TOOLS  USED
  - Nmap
  - Linux Teminal
  - Github (for documentation)
@@ -19,7 +19,7 @@ identify services and understand basic network enumeration.
 The target used here was scanme.nmap.org,
 a publicly available test server provided by the Nmap project for practice purposes.
 
-## Scans Performed
+## SCANS PERFORMED
 ### 1. Basic Scan
 Command used: 'nmap scanme.nmap.org'
 
@@ -78,7 +78,7 @@ PORT   STATE SERVICE VERSION.
 80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu)).
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel.
 
-#### SEcurity Impacts
+#### Security Impacts
 Service versions can be checked agains vulnerability databases such as
 - CVE database
 - Exploit DB
@@ -93,6 +93,24 @@ This scan combines various scanning *(OS detection, Service detection, TCP SYN s
 Open ports      22 80.
 Services        SSH HTTP.
 OS              Oracle Virtualbox Slirp NAT bridge (94%), AT&T BGW210 voice gateway (92%), QEMU user mode network gateway (90%)
+
+
+#### Security Impacts
+Aggressive scans return deep enumeration that may reveal:
+- Vulnerabilities
+- Misconfigurations
+
+
+
+## CONCLUSION
+- Basic scan successfully identified open ports that are later analyzed in subsequent scans.
+- Service detection scan provided deeper insights neccessary for vulnerability analysis.
+- OS detection provides valuable information for targeted vulnerability analysis.
+- The aggressive scan provided comprehensive information on the target system.
+
+
+
+
 
 
 
