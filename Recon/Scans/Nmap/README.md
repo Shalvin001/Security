@@ -73,10 +73,10 @@ The purpose of this scan is to determine the services running on open ports and 
 (please refer to the "Service_scan" folder)
 
 #### Key Findings
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+PORT   STATE SERVICE VERSION.
+22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0).
+80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu)).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel.
 
 #### SEcurity Impacts
 Service versions can be checked agains vulnerability databases such as
@@ -90,9 +90,9 @@ Command used: 'nmap -A scanme.nmap.org'
 This scan combines various scanning *(OS detection, Service detection, TCP SYN scan)* techniques into one command
 
 #### Key Findings
-\Open ports      22 80
-\Services        SSH HTTP
-\OS              
+Open ports      22 80.
+Services        SSH HTTP.
+OS              Oracle Virtualbox Slirp NAT bridge (94%), AT&T BGW210 voice gateway (92%), QEMU user mode network gateway (90%)
 
 
 
