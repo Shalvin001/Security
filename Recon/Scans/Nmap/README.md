@@ -4,7 +4,7 @@ This project is part of my Reconnaissance practice and demonstration.
 The goal was to learn and demonstrate how to use Nmap to discover open ports,
 identify services and understand basic network enumeration.
 
-## This here is the command I used: nmap <scan_type> --top-ports 100 T4 -oA scanme.nmap.org Scans//<filename>_$(date +%Y-%m-%d_%H-%M-%S)
+## This here is the command I used: nmap <scan_type> --top-ports 100 T4 -oA scanme.nmap.org Scans/\<filename>_$(date +%Y-%m-%d_%H-%M-%S)
 
 
 ## Objective:
