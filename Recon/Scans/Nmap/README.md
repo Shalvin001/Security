@@ -43,18 +43,51 @@ and learn where you might use to enter the house or investigate further.
 command used: 'namp -O scanme.nmap.org'
 The purpose of this scan is to identify the OS running on a target
 
+#### Files Included
+- OS_detection.nmap
+- OS_detection.gnmap
+- OS_detection.xml
+- Screenshot (VirtualBoxVM...)
+(please refer to the "OS_Detection" folder)
+
 #### Key Findings
 - Running: AT&T embeded (85%)
 - Aggressive OS guesses: AT&T BGW210 voice gateway (85%)
 No exact matches were found. Test conditions were non ideal. Which basically means there was not enough reliable information to accurately identify the OS (Operating System). This is most likely due to the existence of a Firewall (the target is protected).
 
+#### Security Impacts
+Knowing the OS helps identify 
+- OS specific vulnerabilities
+- Possible privillage esscalation paths
+- System attack surfaces
+
 ### 3. Service Scan
 Command used: 'nmap -sV scanme.nmap.org'
 The purpose of this scan is to determine the services running on open ports and determine their versions
 
-#### Key Findings
-Service Info: OS: Linux; CPE: cpe:/o: Linux: Linux_kernel
+#### Files Included
+- service_scan.nmap
+- service_scan.gnamp
+- service_scan.xml
+- screenshot(VirtualBoxVM...)
+(please refer to the "Service_scan" folder)
 
+#### Key Findings
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+#### SEcurity Impacts
+Service versions can be checked agains vulnerability databases such as
+- CVE database
+- Exploit DB
+- NVD (National Vulnerability Database)
+Outdated services may be vulnerable to known exploits
+
+### 4. Aggressive Scan
+Command used: 'nmap -A scanme.nmap.org'
+This scan combines various scanning *(OS detection, Service detection, TCP SYN scan)* techniques into one command
 
 
 
