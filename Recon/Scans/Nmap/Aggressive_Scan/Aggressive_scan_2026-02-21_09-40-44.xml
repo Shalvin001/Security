@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Sat Feb 21 09:40:45 2026 as: /usr/lib/nmap/nmap -&#45;privileged -A -&#45;top-ports 100 -T4 -oA scans/Aggressive_scan_2026-02-21_09-40-44 scanme.nmap.org -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -&#45;privileged -A -&#45;top-ports 100 -T4 -oA scans/Aggressive_scan_2026-02-21_09-40-44 scanme.nmap.org" start="1771656045" startstr="Sat Feb 21 09:40:45 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="45.33.32.156" addrtype="ipv4"/>
+<hostnames>
+<hostname name="scanme.nmap.org" type="user"/>
+</hostnames>
+</hosthint>
+<host starttime="1771656049" endtime="1771656081"><status state="up" reason="reset" reason_ttl="255"/>
+<address addr="45.33.32.156" addrtype="ipv4"/>
+<hostnames>
+<hostname name="scanme.nmap.org" type="user"/>
+<hostname name="scanme.nmap.org" type="PTR"/>
+</hostnames>
+<ports><extraports state="filtered" count="51">
+<extrareasons reason="no-response" count="51" proto="tcp" ports="9,13,21,23,25-26,37,110-111,113,135,139,143,179,199,389,443-445,514,548,554,587,646,873,990,993,1025,1027,1110,1720,1723,2717,3128,3306,3986,4899,5000,5432,5631,5666,5900,8080-8081,8443,8888,9999,49153,49155-49157"/>
+</extraports>
+<extraports state="closed" count="47">
+<extrareasons reason="reset" count="47" proto="tcp" ports="7,53,79,81,88,106,119,144,427,465,513,515,543-544,631,995,1026,1028-1029,1433,1755,1900,2000-2001,2049,2121,3000,3389,5009,5051,5060,5101,5190,5357,5800,6000-6001,6646,7070,8000,8008-8009,9100,10000,32768,49152,49154"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="6.6.1p1 Ubuntu 2ubuntu2.13" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:6.6.1p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  1024 ac:00:a0:1a:82:ff:cc:55:99:dc:67:2b:34:97:6b:75 (DSA)&#xa;  2048 20:3d:2d:44:62:2a:b0:5a:9d:b5:b3:05:14:c2:a6:b2 (RSA)&#xa;  256 96:02:bb:5e:57:54:1c:4e:45:2f:56:4c:4a:24:b2:57 (ECDSA)&#xa;  256 33:fa:91:0f:e0:e1:7b:1f:6d:05:a2:b0:f1:54:41:56 (ED25519)"><table>
+<elem key="fingerprint">ac00a01a82ffcc5599dc672b34976b75</elem>
+<elem key="bits">1024</elem>
+<elem key="key">AAAAB3NzaC1kc3MAAACBAOe8o59vFWZGaBmGPVeJBObEfi1AR8yEUYC/Ufkku3sKhGF7wM2m2ujIeZDK5vqeC0S5EN2xYo6FshCP4FQRYeTxD17nNO4PhwW65qAjDRRU0uHFfSAh5wk+vt4yQztOE++sTd1G9OBLzA8HO99qDmCAxb3zw+GQDEgPjzgyzGZ3AAAAFQCBmE1vROP8IaPkUmhM5xLFta/xHwAAAIEA3EwRfaeOPLL7TKDgGX67Lbkf9UtdlpCdC4doMjGgsznYMwWH6a7Lj3vi4/KmeZZdix6FMdFqq+2vrfT1DRqx0RS0XYdGxnkgS+2g333WYCrUkDCn6RPUWR/1TgGMPHCj7LWCa1ZwJwLWS2KX288Pa2gLOWuhZm2VYKSQx6NEDOIAAACBANxIfprSdBdbo4Ezrh6/X6HSvrhjtZ7MouStWaE714ByO5bS2coM9CyaCwYyrE5qzYiyIfb+1BG3O5nVdDuN95sQ/0bAdBKlkqLFvFqFjVbETF0ri3v97w6MpUawfF75ouDrQ4xdaUOLLEWTso6VFJcM6Jg9bDl0FA0uLZUSDEHL</elem>
+<elem key="type">ssh-dss</elem>
+</table>
+<table>
+<elem key="fingerprint">203d2d44622ab05a9db5b30514c2a6b2</elem>
+<elem key="bits">2048</elem>
+<elem key="key">AAAAB3NzaC1yc2EAAAADAQABAAABAQC6afooTZ9mVUGFNEhkMoRR1Btzu64XXwElhCsHw/zVlIx/HXylNbb9+11dm2VgJQ21pxkWDs+L6+EbYyDnvRURTrMTgHL0xseB0EkNqexs9hYZSiqtMx4jtGNtHvsMxZnbxvVUk2dasWvtBkn8J5JagSbzWTQo4hjKMOI1SUlXtiKxAs2F8wiq2EdSuKw/KNk8GfIp1TA+8ccGeAtnsVptTJ4D/8MhAWsROkQzOowQvnBBz2/8ecEvoMScaf+kDfNQowK3gENtSSOqYw9JLOza6YJBPL/aYuQQ0nJ74Rr5vL44aNIlrGI9jJc2x0bV7BeNA5kVuXsmhyfWbbkB8yGd</elem>
+<elem key="type">ssh-rsa</elem>
+</table>
+<table>
+<elem key="fingerprint">9602bb5e57541c4e452f564c4a24b257</elem>
+<elem key="bits">256</elem>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMD46g67x6yWNjjQJnXhiz/TskHrqQ0uPcOspFrIYW382uOGzmWDZCFV8FbFwQyH90u+j0Qr1SGNAxBZMhOQ8pc=</elem>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+</table>
+<table>
+<elem key="fingerprint">33fa910fe0e17b1f6d05a2b0f1544156</elem>
+<elem key="bits">256</elem>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAILzVjfIyIHfXyRd8jVBaVT8Yvk/UvHh5Afvho8sGciG7</elem>
+<elem key="type">ssh-ed25519</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Apache httpd" version="2.4.7" extrainfo="(Ubuntu)" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.7</cpe></service><script id="http-server-header" output="Apache/2.4.7 (Ubuntu)"><elem>Apache/2.4.7 (Ubuntu)</elem>
+</script><script id="http-title" output="Go ahead and ScanMe!"><elem key="title">Go ahead and ScanMe!</elem>
+</script><script id="http-favicon" output="Nmap Project"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<osmatch name="Oracle Virtualbox Slirp NAT bridge" accuracy="94" line="98665">
+<osclass type="bridge" vendor="Oracle" osfamily="Virtualbox" accuracy="94"><cpe>cpe:/o:oracle:virtualbox</cpe></osclass>
+<osclass type="bridge" vendor="Slirp" osfamily="Slirp" accuracy="94"><cpe>cpe:/a:danny_gasparovski:slirp</cpe></osclass>
+</osmatch>
+<osmatch name="AT&amp;T BGW210 voice gateway" accuracy="92" line="9785">
+<osclass type="VoIP adapter" vendor="AT&amp;T" osfamily="embedded" accuracy="92"/>
+</osmatch>
+<osmatch name="QEMU user mode network gateway" accuracy="90" line="100506">
+<osclass type="general purpose" vendor="QEMU" osfamily="QEMU" accuracy="90"><cpe>cpe:/a:qemu:qemu</cpe></osclass>
+</osmatch>
+</os>
+<distance value="1"/>
+<tcpsequence index="17" difficulty="Good luck!" values="9AF7E01,9B07801,9B17201,9B26C01,9B36601,9B55A01"/>
+<ipidsequence class="Incremental" values="DA6,DA7,DA8,DA9,DAA,DAB"/>
+<tcptssequence class="none returned (unsupported)"/>
+<trace port="80" proto="tcp">
+<hop ttl="1" ipaddr="45.33.32.156" rtt="0.42" host="scanme.nmap.org"/>
+</trace>
+<times srtt="39200" rttvar="69030" to="315320"/>
+</host>
+<runstats><finished time="1771656081" timestr="Sat Feb 21 09:41:21 2026" summary="Nmap done at Sat Feb 21 09:41:21 2026; 1 IP address (1 host up) scanned in 36.46 seconds" elapsed="36.46" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

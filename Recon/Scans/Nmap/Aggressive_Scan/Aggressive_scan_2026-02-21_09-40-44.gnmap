@@ -1,0 +1,4 @@
+# Nmap 7.95 scan initiated Sat Feb 21 09:40:45 2026 as: /usr/lib/nmap/nmap --privileged -A --top-ports 100 -T4 -oA scans/Aggressive_scan_2026-02-21_09-40-44 scanme.nmap.org
+Host: 45.33.32.156 (scanme.nmap.org)	Status: Up
+Host: 45.33.32.156 (scanme.nmap.org)	Ports: 22/open/tcp//ssh//OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.7 ((Ubuntu))/	Seq Index: 17	IP ID Seq: Incremental
+# Nmap done at Sat Feb 21 09:41:21 2026 -- 1 IP address (1 host up) scanned in 36.46 seconds
