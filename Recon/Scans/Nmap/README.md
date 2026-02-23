@@ -89,6 +89,10 @@ Outdated services may be vulnerable to known exploits
 Command used: 'nmap -A scanme.nmap.org'
 This scan combines various scanning *(OS detection, Service detection, TCP SYN scan)* techniques into one command
 
+#### Key Findings
+\Open ports      22 80
+\Services        SSH HTTP
+\OS              
 
 
 
