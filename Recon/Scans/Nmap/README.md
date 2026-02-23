@@ -4,7 +4,7 @@ This project is part of my Reconnaissance practice and demonstration.
 The goal was to learn and demonstrate how to use Nmap to discover open ports,
 identify services and understand basic network enumeration.
 
-## This here is the command I used: nmap <scan_type> --top-ports 100 T4 -oA scanme.nmap.org Scans/<filename>_$(date +%Y-%m-%d_%H-%M-%S)
+## This here is the command I used: nmap <scan_type> --top-ports 100 T4 -oA scanme.nmap.org Scans/ <filename>_$(date +%Y-%m-%d_%H-%M-%S)
 
 
 ## Objective:
@@ -82,7 +82,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service versions can be checked agains vulnerability databases such as
 - CVE database
 - Exploit DB
-- NVD (National Vulnerability Database)
+- NVD (National Vulnerability Database).
 Outdated services may be vulnerable to known exploits
 
 ### 4. Aggressive Scan
