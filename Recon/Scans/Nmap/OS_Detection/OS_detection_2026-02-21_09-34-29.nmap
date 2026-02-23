@@ -1,0 +1,25 @@
+# Nmap 7.95 scan initiated Sat Feb 21 09:34:31 2026 as: /usr/lib/nmap/nmap --privileged -O --top-ports 100 -T4 -oA scans/OS_detection_2026-02-21_09-34-29 scanme.nmap.org
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.15s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 89 filtered tcp ports (no-response)
+PORT     STATE  SERVICE
+21/tcp   closed ftp
+22/tcp   open   ssh
+23/tcp   closed telnet
+25/tcp   closed smtp
+80/tcp   open   http
+113/tcp  closed ident
+139/tcp  closed netbios-ssn
+445/tcp  closed microsoft-ds
+587/tcp  closed submission
+5900/tcp closed vnc
+8888/tcp closed sun-answerbook
+Device type: bridge|VoIP adapter|general purpose
+Running (JUST GUESSING): Oracle Virtualbox (94%), Slirp (94%), AT&T embedded (92%), QEMU (90%)
+OS CPE: cpe:/o:oracle:virtualbox cpe:/a:danny_gasparovski:slirp cpe:/a:qemu:qemu
+Aggressive OS guesses: Oracle Virtualbox Slirp NAT bridge (94%), AT&T BGW210 voice gateway (92%), QEMU user mode network gateway (90%)
+No exact OS matches for host (test conditions non-ideal).
+
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Feb 21 09:34:44 2026 -- 1 IP address (1 host up) scanned in 14.22 seconds

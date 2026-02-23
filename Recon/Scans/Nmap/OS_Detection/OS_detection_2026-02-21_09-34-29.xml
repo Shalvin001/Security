@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Sat Feb 21 09:34:31 2026 as: /usr/lib/nmap/nmap -&#45;privileged -O -&#45;top-ports 100 -T4 -oA scans/OS_detection_2026-02-21_09-34-29 scanme.nmap.org -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -&#45;privileged -O -&#45;top-ports 100 -T4 -oA scans/OS_detection_2026-02-21_09-34-29 scanme.nmap.org" start="1771655671" startstr="Sat Feb 21 09:34:31 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="45.33.32.156" addrtype="ipv4"/>
+<hostnames>
+<hostname name="scanme.nmap.org" type="user"/>
+</hostnames>
+</hosthint>
+<host starttime="1771655671" endtime="1771655684"><status state="up" reason="reset" reason_ttl="255"/>
+<address addr="45.33.32.156" addrtype="ipv4"/>
+<hostnames>
+<hostname name="scanme.nmap.org" type="user"/>
+<hostname name="scanme.nmap.org" type="PTR"/>
+</hostnames>
+<ports><extraports state="filtered" count="89">
+<extrareasons reason="no-response" count="89" proto="tcp" ports="7,9,13,26,37,53,79,81,88,106,110-111,119,135,143-144,179,199,389,427,443-444,465,513-515,543-544,548,554,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="21"><state state="closed" reason="reset" reason_ttl="64"/><service name="ftp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="23"><state state="closed" reason="reset" reason_ttl="64"/><service name="telnet" method="table" conf="3"/></port>
+<port protocol="tcp" portid="25"><state state="closed" reason="reset" reason_ttl="64"/><service name="smtp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="113"><state state="closed" reason="reset" reason_ttl="64"/><service name="ident" method="table" conf="3"/></port>
+<port protocol="tcp" portid="139"><state state="closed" reason="reset" reason_ttl="64"/><service name="netbios-ssn" method="table" conf="3"/></port>
+<port protocol="tcp" portid="445"><state state="closed" reason="reset" reason_ttl="64"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="587"><state state="closed" reason="reset" reason_ttl="64"/><service name="submission" method="table" conf="3"/></port>
+<port protocol="tcp" portid="5900"><state state="closed" reason="reset" reason_ttl="64"/><service name="vnc" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8888"><state state="closed" reason="reset" reason_ttl="64"/><service name="sun-answerbook" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<portused state="closed" proto="tcp" portid="21"/>
+<osmatch name="Oracle Virtualbox Slirp NAT bridge" accuracy="94" line="98665">
+<osclass type="bridge" vendor="Oracle" osfamily="Virtualbox" accuracy="94"><cpe>cpe:/o:oracle:virtualbox</cpe></osclass>
+<osclass type="bridge" vendor="Slirp" osfamily="Slirp" accuracy="94"><cpe>cpe:/a:danny_gasparovski:slirp</cpe></osclass>
+</osmatch>
+<osmatch name="AT&amp;T BGW210 voice gateway" accuracy="92" line="9785">
+<osclass type="VoIP adapter" vendor="AT&amp;T" osfamily="embedded" accuracy="92"/>
+</osmatch>
+<osmatch name="QEMU user mode network gateway" accuracy="90" line="100506">
+<osclass type="general purpose" vendor="QEMU" osfamily="QEMU" accuracy="90"><cpe>cpe:/a:qemu:qemu</cpe></osclass>
+</osmatch>
+</os>
+<tcpsequence index="17" difficulty="Good luck!" values="7A7F601,7A9EA01,7AAE401,7ABDE01,7ACD801,7ADD201"/>
+<ipidsequence class="Incremental" values="BCC,BCD,BCE,BCF,BD0,BD1"/>
+<tcptssequence class="none returned (unsupported)"/>
+<times srtt="146607" rttvar="144075" to="722907"/>
+</host>
+<runstats><finished time="1771655684" timestr="Sat Feb 21 09:34:44 2026" summary="Nmap done at Sat Feb 21 09:34:44 2026; 1 IP address (1 host up) scanned in 14.22 seconds" elapsed="14.22" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,4 @@
+# Nmap 7.95 scan initiated Sat Feb 21 09:34:31 2026 as: /usr/lib/nmap/nmap --privileged -O --top-ports 100 -T4 -oA scans/OS_detection_2026-02-21_09-34-29 scanme.nmap.org
+Host: 45.33.32.156 (scanme.nmap.org)	Status: Up
+Host: 45.33.32.156 (scanme.nmap.org)	Ports: 21/closed/tcp//ftp///, 22/open/tcp//ssh///, 23/closed/tcp//telnet///, 25/closed/tcp//smtp///, 80/open/tcp//http///, 113/closed/tcp//ident///, 139/closed/tcp//netbios-ssn///, 445/closed/tcp//microsoft-ds///, 587/closed/tcp//submission///, 5900/closed/tcp//vnc///, 8888/closed/tcp//sun-answerbook///	Ignored State: filtered (89)	Seq Index: 17	IP ID Seq: Incremental
+# Nmap done at Sat Feb 21 09:34:44 2026 -- 1 IP address (1 host up) scanned in 14.22 seconds
