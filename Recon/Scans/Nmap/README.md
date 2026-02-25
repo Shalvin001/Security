@@ -100,13 +100,19 @@ Aggressive scans return deep enumeration that may reveal:
 - Vulnerabilities
 - Misconfigurations
 
-
+### Additional Information
+It is recommended to perform scans as a root user (sudo), as it is more proffessional and the results would be more accurate. And yes, I forgot to do that, but I inted to do better next time. 
 
 ## CONCLUSION
 - Basic scan successfully identified open ports that are later analyzed in subsequent scans.
 - Service detection scan provided deeper insights neccessary for vulnerability analysis.
 - OS detection provides valuable information for targeted vulnerability analysis.
 - The aggressive scan provided comprehensive information on the target system.
+
+
+Author: Shalvin Brandon
+Project: Nmap Reconnaissance Scan
+Date: 25 Feb 2026
 
 
 
