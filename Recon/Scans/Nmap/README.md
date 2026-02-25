@@ -33,9 +33,11 @@ You aren't going in yet, just checking on which windows(ports) are open and whic
 and learn where you might use to enter the house or investigate further.
 
 #### Key Findings
-- Port    22    80
-- State   open  open
-- Service SSH   HTTP
+| Port | State | Service |
+|------|-------|---------|
+|  22  | open  |   SSH   |
+|  80  | open  |   HTTP  |
+---
 
 #### Only two files are included for this scan: "basic_scan.txt" and a screenshot, under the 'Basic_Scan' folder
 
