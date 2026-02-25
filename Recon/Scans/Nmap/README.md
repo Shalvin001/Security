@@ -4,7 +4,7 @@ This project is part of my Reconnaissance practice and demonstration.
 The goal was to learn and demonstrate how to use Nmap to discover open ports,
 identify services and understand basic network enumeration.
 
-##### This here is the command I used: nmap <scan_type> --top-ports 100 T4 -oA scanme.nmap.org Scans/\<filename>_$(date +%Y-%m-%d_%H-%M-%S)
+##### This here is the command I used: nmap <scan_type> --top-ports 100 -T4 scanme.nmap.org -oA Scans/\<filename>_$(date +%Y-%m-%d_%H-%M-%S)
 
 
 ## OBJECTIVE:
@@ -94,6 +94,13 @@ Outdated services may be vulnerable to known exploits
 Command used: 'nmap -A scanme.nmap.org'
 This scan combines various scanning *(OS detection, Service detection, TCP SYN scan)* techniques into one command
 
+#### Files Included
+- Aggressive_scan.nmap
+- Aggressive_scan.gnmap
+- Aggressive_scan.xml
+- Screenshot (VirtualBoxVM...)
+(please refer to the "Aggressive_scan" folder)
+
 #### Key Findings
 Open ports      22 80.
 Services        SSH HTTP.
@@ -118,8 +125,8 @@ Aggressive scans return deep enumeration that may reveal:
 - The aggressive scan provided comprehensive information on the target system.
 
 
-Author: Shalvin Brandon
-Project: Nmap Reconnaissance Scan
+Author: Shalvin Brandon <br>
+Project: Nmap Reconnaissance Scan <br>
 Date: 25 Feb 2026
 
 
