@@ -4,7 +4,7 @@ This project is part of my Reconnaissance practice and demonstration.
 The goal was to learn and demonstrate how to use Nmap to discover open ports,
 identify services and understand basic network enumeration.
 
-## This here is the command I used: nmap <scan_type> --top-ports 100 T4 -oA scanme.nmap.org Scans/\<filename>_$(date +%Y-%m-%d_%H-%M-%S)
+##### This here is the command I used: nmap <scan_type> --top-ports 100 T4 -oA scanme.nmap.org Scans/\<filename>_$(date +%Y-%m-%d_%H-%M-%S)
 
 
 ## OBJECTIVE:
@@ -73,10 +73,15 @@ The purpose of this scan is to determine the services running on open ports and 
 (please refer to the "Service_scan" folder)
 
 #### Key Findings
-PORT   STATE SERVICE VERSION.
-22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0).
-80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu)).
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel.
+
+| Port | State | Service | Version | Additional Info |
+|------|-------|---------|---------|------------------|
+| 22/tcp | Open | SSH | OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 | Protocol 2.0 |
+| 80/tcp | Open | HTTP | Apache httpd 2.4.7 (Ubuntu) | Web server |
+
+**Service Info:**
+- OS: Linux
+- CPE: cpe:/o:linux:linux_kernel
 
 #### Security Impacts
 Service versions can be checked agains vulnerability databases such as
@@ -101,7 +106,10 @@ Aggressive scans return deep enumeration that may reveal:
 - Misconfigurations
 
 ### Additional Information
-It is recommended to perform scans as a root user (sudo), as it is more proffessional and the results would be more accurate. And yes, I forgot to do that, but I inted to do better next time. 
+- It is recommended to perform scans as a root user (sudo).
+-- For example: **sudo -A --top-ports 100 -T4 scanme.nmap.org**
+- That way it is more proffessional and the results will be more accurate. And yes, I forgot to do that, but I intend to do better next time. 
+- I scanned top 100 ports instead of the default top 1000 port due to my resources beiing limited.
 
 ## CONCLUSION
 - Basic scan successfully identified open ports that are later analyzed in subsequent scans.
