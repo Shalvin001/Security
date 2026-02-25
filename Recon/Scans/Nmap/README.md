@@ -104,9 +104,16 @@ This scan combines various scanning *(OS detection, Service detection, TCP SYN s
 (please refer to the "Aggressive_scan" folder)
 
 #### Key Findings
-Open ports      22 80.
-Services        SSH HTTP.
-OS              Oracle Virtualbox Slirp NAT bridge (94%), AT&T BGW210 voice gateway (92%), QEMU user mode network gateway (90%)
+| Ports | Services |
+|-------|----------|
+|  22   |  SSH     |
+| 80    | HTTP     | 
+---
+
+**OS:**
+  - Oracle Virtualbox Slirp NAT bridge (94%)
+  - AT&T BGW210 voice gateway (92%)
+  - QEMU user mode network gateway (90%)
 
 
 #### Security Impacts
