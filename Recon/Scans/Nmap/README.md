@@ -123,7 +123,7 @@ Aggressive scans return deep enumeration that may reveal:
 
 ### Additional Information
 - It is recommended to perform scans as a root user (sudo).
--- For example: **sudo -A --top-ports 100 -T4 scanme.nmap.org**
+-- For example: **sudo nmap -A --top-ports 100 -T4 scanme.nmap.org**
 - That way it is more proffessional and the results will be more accurate. And yes, I forgot to do that, but I intend to do better next time. 
 - I scanned top 100 ports instead of the default top 1000 port due to my resources beiing limited.
 
