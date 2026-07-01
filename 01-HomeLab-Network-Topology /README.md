@@ -100,20 +100,20 @@ A dedicated firewall may be considered in a later phase of this path, once the l
 
 #### Network Configuration
 You may come through some IP addressing challenges during the assigning of IP for Linux Distros.
-This was my solution:
-  **Ubuntu Server**
+This was my solution:  
+  **Ubuntu Server**  
 - Opened netplan config with `sudo nano /etc/netplan/00-installer-config.yaml`
 - Chagned dhcp4 and dhcp6 to false and added static IP `192.168.56.10/24` under addresses
-- Applied with `sudo netplan apply` and verified with `ip a`
+- Applied with `sudo netplan apply` and verified with `ip a`  
 
-  **Ubuntu Desktop**
-This one is similar to Ubuntu Server:
+  **Ubuntu Desktop**  
+This one is similar to Ubuntu Server:  
 - Opened netplan config with `sudo nano /etc/netplan/00-installer-config.yaml`
 - Chagned dhcp4 and dhcp6 to false and added static IP `192.168.56.12/24` under addresses
-- Applied with `sudo netplan apply` and verified with `ip a`
+- Applied with `sudo netplan apply` and verified with `ip a`  
 
-  **Kali Linux**
-- Created a new static profile using
+  **Kali Linux**  
+- Created a new static profile using  
   ```sudo nmcli connection add type ethernet ifname enp0s3 con-name "LabNet" ipv4.method manual ipv4.addresses 192.168.56.14/24```
 - Brought it up with `sudo nmcli connection up "LabNet"`
 
