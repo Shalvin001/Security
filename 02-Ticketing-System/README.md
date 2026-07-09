@@ -147,5 +147,5 @@ osTicket was chosen because it mirrors the real-world tooling used by small IT t
 ---
 
 
-####**Author:** Shalvin Brandon
+**Author:** Shalvin Brandon
 
