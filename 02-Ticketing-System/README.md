@@ -2,9 +2,8 @@
 
 ## 1. Overview
 
-This project simulates a small business IT helpdesk using osTicket, an open-source support ticketing platform, deployed on the home lab server (UBSRV01). The goal was to replicate the full lifecycle of a real IT support operation: department structure, ticket routing, agent workflows, and end-to-end ticket resolution — not just a bare software install.
-
-osTicket was chosen because it mirrors the real-world tooling used by small IT teams and MSPs (including many Kenyan SMBs), it's open-source with no licensing cost, and it runs on the same LAMP stack skill set that recurs throughout this portfolio.
+This project simulates a small business IT helpdesk using osTicket, an open-source support ticketing platform, deployed on the home lab server (UBSRV01). The goal was to replicate the full lifecycle of a real IT support operation: department structure, ticket routing, agent workflows, and end-to-end ticket resolution  
+osTicket was chosen because it mirrors the real-world tooling used by small IT teams and MSPs, it's open-source with no licensing cost, and it runs on the same LAMP stack skill set that recurs throughout this portfolio.
 
 ---
 
@@ -13,17 +12,36 @@ osTicket was chosen because it mirrors the real-world tooling used by small IT t
 - **OS:** Ubuntu Server (UBSRV01, 192.168.56.10)
 - **Web server:** Apache 2
 - **Database:** MySQL 8.4
-- **Language:** PHP 8.3 (with required extensions: mysqli, gd, mbstring, xml, intl, apcu)
+- **Language:** PHP 8.5.4 (with required extensions: mysqli, gd, mbstring, xml, intl, apcu)
 - **Application:** osTicket v1.18.4
-- **Client access:** WIN10-CL (browser-based access to both the client portal and staff panel)
+- **Client access:** KALI-01 (browser-based access to both the client portal and staff panel)
+- **SSH Administration:** Configured SSH on KALI-01 to facilitate secure remote management of UBSRV01
 
 ---
 
-## 3. Architecture & Design Decisions
+## 3. Setup Process
 
-**Department structure.** Three departments were created to reflect a realistic IT org split: **IT Support** (general queries — password resets, account access, software requests, printers), **Network Operations** (connectivity, VPN, network-related issues), and **Systems Administration** (server/hardware issues). Two additional departments (Sales, Maintenance) were created during exploratory setup and left in place intentionally — they are not part of the active ticket workflow and exist only as leftover seed/test data. This is a deliberate decision, documented here rather than cleaned up, to be transparent about the lab's evolution.
+1. Installed Apache, MySQL, and PHP with required extensions on UBSRV01
+2. Created a dedicated MySQL database and user (`osticket` / `osadmin`) with privileges scoped to that database only
+3. Downloaded osTicket v1.18.4, extracted, and moved the `upload` directory into Apache's web root
+4. Set ownership (`www-data:www-data`) and correct permissions (0755 directories, 0644 config file)
+5. Ran the web-based installer at `/osticket/setup/`, connecting it to the prepared database
+6. Removed the `setup/` directory and locked config file permissions post-install (per osTicket's own security guidance)
+7. Configured departments, help topics, and an agent account through the Staff Control Panel
+8. Submitted 8 tickets via the client-facing portal using varied fictional requester identities
+9. Logged in as the agent to claim, respond to, and resolve tickets through the queue
 
+---
+
+## 4. Architecture & Design Decisions
+
+**Department structure.** Three departments were created to reflect a realistic IT org split: 
+- **IT Support** (general queries — password resets, account access, software requests, printers),
+- **Network Operations** (connectivity, VPN, network-related issues)  
+- **Systems Administration** (server/hardware issues).  
 **Help Topic routing.** Seven help topics were mapped to departments to simulate realistic ticket triage:
+
+---
 
 | Help Topic | Department |
 |---|---|
@@ -35,23 +53,9 @@ osTicket was chosen because it mirrors the real-world tooling used by small IT t
 | Network Connectivity Issue | Network Operations |
 | VPN/Remote Access Issue | Network Operations |
 
-**Agent design.** A single agent account (Brandon Otieno) was created with **IT Support** as primary department and **Network Operations** granted as extended access. This models a common small-team reality: one generalist support tech covering multiple functional areas rather than siloed specialists — more realistic for an SMB than a large enterprise structure with dedicated teams per department.
+**Agent design.** A single agent account (John Lanster) was created with **IT Support** as primary department and **Network Operations** granted as extended access. This models a common small-team reality where there is one generalist support tech covering multiple functional areas rather than seperate specialists (more realistic for an SMB than a large enterprise structure with dedicated teams per department).
 
-**Ticket queue realism.** Of the 8 simulated tickets, 5 were fully resolved with agent replies, 1 was replied to but left in-progress (simulating an escalation awaiting third-party/ISP input), and 1 was left open and unclaimed. A 100%-resolved queue would look staged; a mixed queue is a more honest representation of a working helpdesk at any given moment.
-
----
-
-## 4. Setup Process
-
-1. Installed Apache, MySQL, and PHP with required extensions on UBSRV01
-2. Created a dedicated MySQL database and user (`osticket` / `osadmin`) with privileges scoped to that database only
-3. Downloaded osTicket v1.18.4, extracted, and moved the `upload` directory into Apache's web root
-4. Set ownership (`www-data:www-data`) and correct permissions (0755 directories, 0644 config file)
-5. Ran the web-based installer at `/osticket/setup/`, connecting it to the prepared database
-6. Removed the `setup/` directory and locked config file permissions post-install (per osTicket's own security guidance)
-7. Configured departments, help topics, and an agent account through the Staff Control Panel
-8. Submitted 8 tickets via the client-facing portal using varied fictional requester identities
-9. Logged in as the agent to claim, respond to, and resolve tickets through the queue
+**Ticket queue realism.** Of the 8 simulated tickets, 5 were fully resolved with agent replies, 1 was replied to but left in-progress (simulating an escalation awaiting third-party, in this case, "ISP input"), and 1 was left open.  
 
 ---
 
@@ -72,7 +76,7 @@ osTicket was chosen because it mirrors the real-world tooling used by small IT t
 
 ## 6. Screenshots
 
-*(Click highlighted text to see attached images)*
+*(Please click on text to see attached images)*
 
 <details>
   <summary>01. Apache Status</summary>
@@ -133,10 +137,17 @@ osTicket was chosen because it mirrors the real-world tooling used by small IT t
 
 ## 7. Lessons Learned
 
-- **PHP package availability changes across Ubuntu/PHP versions.** `php-imap` was unavailable on this PHP 8.3 install (deprecated upstream) — resolved by confirming it wasn't required for core ticketing functionality and skipping it, noting the limitation (no automatic ticket-number email delivery to end users) rather than forcing an unnecessary workaround.
-- **GitHub release pages vs. direct asset links are not the same thing.** Downloading a release *page* URL with `wget` silently saves an HTML file, not the intended archive — always confirm with `file <filename>` before assuming a download succeeded.
-- **Bash argument spacing matters more than it seems.** A missing space in `mv source destination` merged two arguments into one invalid path — a small but easy mistake worth double-checking on every multi-argument command.
-- **`sudo` scope isn't inherited across commands.** After using `sudo chown` to hand a directory to `www-data`, subsequent `chmod` calls on that directory required `sudo` again — normal user permissions no longer applied.
+- **PHP package availability changes across Ubuntu/PHP versions.** `php-imap` was unavailable on this PHP 8.5 install (deprecated upstream). This was resolved by confirming it wasn't required for core ticketing functionality and skipping it, noting the limitation (no automatic ticket-number email delivery to end users) rather than forcing an unnecessary workaround.
+- **Bash argument spacing matters more than it seems.** A missing space in `mv source destination` merged two arguments into one invalid path , a small but easy mistake worth double checking on every multi argument command.
+- **`sudo` scope isn't inherited across commands.** After using `sudo chown` to hand a directory to `www-data`, subsequent `chmod` calls on that directory required `sudo` again. Normal user permissions no longer applied.
 - **NTP sync can silently fail even when the service shows "active."** `systemd-timesyncd` being active doesn't guarantee the clock is actually synchronized — worth checking `timedatectl status` explicitly rather than assuming the service state implies success.
 - **Admin accounts exist for exactly this kind of recovery.** Losing an agent's password with no working email/IMAP pipeline isn't a dead end — an administrator can reset any agent's credentials directly through the Staff Control Panel, no email round-trip required.
 - **A realistic ticket queue isn't a fully-closed one.** Leaving genuine variation in ticket status (resolved / in-progress / open) demonstrates a working system more convincingly than a portfolio that shows everything neatly solved.
+
+---
+
+
+
+
+
+
