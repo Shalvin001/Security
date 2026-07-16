@@ -2,9 +2,9 @@
 
 ## 1. Overview
 
-This is a bash hardening project that uses a Bash script (`harden.sh`) that audits and remediates Ubuntu systems against a subset of the CIS Ubuntu Benchmark. It targets two nodes in the home lab — **UBSRV01** (server) and **UBDSK01** (desktop) — using a single, portable script rather than two separate versions.
+This is a bash hardening project that uses a Bash script (`harden.sh`) that audits and remediates Ubuntu systems against a subset of the CIS Ubuntu Benchmark. It targets two nodes in the home lab: **UBSRV01** (server) and **UBDSK01** (desktop), using a single, portable script rather than having to create two separate versions.
 
-The script runs in one of two modes, passed as a command line flag:
+The script runs in one of two modes:
 
 - `--audit` — checks the system against 14 CIS-aligned controls and reports PASS/FAIL for each. Makes no changes.
 - `--remediate` — runs the same checks, but automatically fixes what it can. A small number of checks intentionally never auto-fix.  
@@ -41,10 +41,10 @@ Never blindly apply changes without first showing what would change.
 ### 4.1 Dual-mode design (`--audit` / `--remediate`)
 Every check function follows the same pattern: test current state → if correct, log PASS → if incorrect, log FAIL (audit mode) or apply a fix and log FIXED (remediate mode). This is enforced structurally, not just by convention, so no check can silently "fix" something while claiming to only audit.
 
-### 4.2 Safety-first sequencing
+### 4.2 "Safety" first sequencing
 Two decisions in particular were made specifically to avoid locking myself out of the lab:
 
-- **SSH key-based auth was set up on both client machines (UBDSK01, KALI01) *before* the script was allowed to disable SSH password authentication.** Disabling password auth without a working key first would have cut off remote access entirely.
+- **SSH key-based auth was set up on both client machines (UBDSK01, KALI01) *before* the script was allowed to disable SSH password authentication.** Disabling password auth without a working key first would have cut off remote access entirely. 
 
 <details>
   <summary>Click to view the Screenshot</summary>
@@ -52,7 +52,8 @@ Two decisions in particular were made specifically to avoid locking myself out o
   <img src="Screenshots/07. SSH Keygen.png" alt="SSH key generation Screenshot" width="100%">
 </details>
 
-- **UFW is explicitly allowed to permit SSH *before* the firewall is enabled**, inside the same remediation step — not as two separate steps a user could run out of order. A default-deny firewall enabled without an SSH allow rule first would have blocked the very connection being used to run the script.
+- **UFW is explicitly allowed to permit SSH *before* the firewall is enabled**, inside the same remediation step -not as two separate steps a user could run out of order. A default-deny firewall enabled without an SSH allow rule first would have blocked the very connection being used to run the script.
+
 <details>
   <summary>Click to view the Screenshot</summary>
   
@@ -64,7 +65,7 @@ Two decisions in particular were made specifically to avoid locking myself out o
 Rather than maintain two separate scripts, `harden.sh` reads `hostname` at runtime. The "Unused Services" check (avahi, cups, bluetooth) is only meaningful on a server profile while a desktop legitimately needs printing and network discovery. On UBDSK01, this check is skipped automatically and logged as `[SKIP]`, rather than incorrectly failing or disabling services the desktop needs.
 
 ### 4.4 Checks that intentionally never auto-remediate
-Two checks — **listening ports** and **world-writable files** — only ever report PASS/FAIL, even in `--remediate` mode. Automatically closing a port or changing a file's permissions without knowing what depends on it risks breaking a legitimate service. These are designed to surface findings for manual human review, matching how a real SOC analyst would triage rather than blindly automate.
+Two checks: **listening ports** and **world-writable files**, only ever report PASS/FAIL, even in `--remediate` mode. Automatically closing a port or changing a file's permissions without knowing what depends on it risks breaking a legitimate service. These are designed to surface findings for manual human review.
 
 <details>
   <summary>Click to access the script file</summary>
@@ -95,7 +96,7 @@ Two checks — **listening ports** and **world-writable files** — only ever re
 mkdir -p ~/Project3-hardening
 cd ~/Project3-hardening
 nano harden.sh
-# (paste/type script contents)
+# (type script contents)
 chmod +x harden.sh
 
 # Always audit first:
@@ -140,12 +141,14 @@ scp harden.sh shalvin254@<target-ip>:~/Project3-hardening/
 
 ## 8. Lessons Learned
 
-- **Bash's `[[ ]]` test syntax is whitespace-sensitive** — missing a single space (`"audit"]]` vs `"audit" ]]`) produces a cryptic "command not found" error rather than an obvious syntax complaint. Hand-typing the script surfaced this directly.
+- **Bash's `[[ ]]` test syntax is whitespace-sensitive** — missing a single space (`"audit"]]` vs `"audit" ]]`) produces a cryptic "command not found" error rather than an obvious syntax complaint. I came across this error myself and had to visually check each line on a section to catch it.
 - **A single missing `elif` (using `if` instead) silently breaks control flow** rather than immediately erroring. This took a `bash -n` syntax check plus visual comparison to catch.
 - **Kali Linux does not run SSH by default**, unlike Ubuntu Server/Desktop — this caused a "connection refused" during file transfer that a quick `systemctl status ssh` diagnosed immediately.
-- **Order-of-operations matters for safety-critical automation.** Setting up SSH keys before disabling password auth, and allowing SSH before enabling a default-deny firewall, aren't just good practice — skipping either step would have caused a real lockout in this lab.
+- **Order-of-operations matters for safety-critical automation.** Setting up SSH keys before disabling password auth, and allowing SSH before enabling a "default deny" firewall, aren't just good practice but a necessary one. Skipping either step would have caused a real lockout in this lab.
 - **Not every "auto-fix" should be automatic.** Deliberately leaving listening-ports and world-writable-files checks as report-only, rather than auto-remediating, reflects how important it is for manual confirmation.  
 
 ---
+
+
 
 **Author: Shalvin** 
