@@ -12,9 +12,9 @@ The script runs in one of two modes, passed as a command-line flag:
 Never blindly apply changes without first showing what would change.
 
 <details>
-  <summary>UBSRV01 Audit & Remediate mode</summary>
+  <summary>UBSRV01 Audit</summary>
   
-  <img src="/Screenshots/UBSRV01 AUdit and Remediate.png" alt="sshKeyGen Screenshot" width="100%">
+  <img src="/Screenshots/UBSRV01 Full Audit.png" alt="UBSRV01 Screenshot" width="100%">
 </details>
 
 ---
@@ -53,6 +53,12 @@ Two decisions in particular were made specifically to avoid locking myself out o
 </details>
 
 - **UFW is explicitly allowed to permit SSH *before* the firewall is enabled**, inside the same remediation step — not as two separate steps a user could run out of order. A default-deny firewall enabled without an SSH allow rule first would have blocked the very connection being used to run the script.
+<details>
+  <summary>Click to view the Screenshot</summary>
+  
+  <img src="/Screenshots/UFW checks.png" alt="UFW Checks Screenshot" width="100%">
+</details>
+
 
 ### 4.3 Host-aware logic (one script, two machines)
 Rather than maintain two separate scripts, `harden.sh` reads `hostname` at runtime. The "Unused Services" check (avahi, cups, bluetooth) is only meaningful on a server profile while a desktop legitimately needs printing and network discovery. On UBDSK01, this check is skipped automatically and logged as `[SKIP]`, rather than incorrectly failing or disabling services the desktop needs.
@@ -107,26 +113,28 @@ To deploy to a second machine:
 scp harden.sh shalvin254@<target-ip>:~/Project3-hardening/
 ```
 
-**[SCREENSHOT NEEDED: `--remediate` output on UBSRV01 showing FIXED lines for SSH + UFW sections]**
 <details>
   <summary>Screenshot showing fixed lines for SSH & UFW sections(UBSRV01)</summary>
   
-  <img srrc="/Screenshots/ssh/ufw.png" alt="sshKeyGen Screenshot" width="100%">
+  <img srrc="/Screenshots/UBSRV01 Audit&Remediation.png" alt="UBSRV01 Screenshot" width="100%">
 </details>
 
-**[SCREENSHOT NEEDED: `--audit` output on UBDSK01 showing the `[SKIP]` line and `Skipped: 1` in the summary]**
+---
+
 <details>
-  <summary>📸 Click to view sshKeyGen Screenshot</summary>
+  <summary>Click to view UBDSK01 Audit Output</summary>
   
-  <img src="/Screenshots/UBDSK01 Remediate.png" alt="Remediate Screenshot" width="100%">
+  <img src="/Screenshots/UBDSK01 last audit.png" alt="Audit Screenshot" width="100%">
 </details>
+
+---
 
 **[SCREENSHOT NEEDED: `sudo ufw status verbose` confirming default-deny incoming, SSH explicitly allowed]**
 
 <details>
   <summary>UBDSK01 Audit & Remediate</summary>
   
-  <img src="/Screenshots/UBDSK01 Audit and Remediate.png" alt="Audit Screenshot" width="100%">
+  <img src="/Screenshots/UFW checks.png" alt="UFW Screenshot" width="100%">
 </details>
 
 ---
