@@ -49,7 +49,7 @@ Two decisions in particular were made specifically to avoid locking myself out o
 <details>
   <summary>Click to view the Screenshot</summary>
   
-  <img src="Screenshots/07. sshKeyGen.png" alt="sshKeyGen Screenshot" width="100%">
+  <img src="Screenshots/07. SSH Keygen.png" alt="SSH key generation Screenshot" width="100%">
 </details>
 
 - **UFW is explicitly allowed to permit SSH *before* the firewall is enabled**, inside the same remediation step — not as two separate steps a user could run out of order. A default-deny firewall enabled without an SSH allow rule first would have blocked the very connection being used to run the script.
