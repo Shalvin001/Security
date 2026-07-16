@@ -14,7 +14,7 @@ Never blindly apply changes without first showing what would change.
 <details>
   <summary>UBSRV01 Audit</summary>
   
-  <img src="Screenshots/UBSRV01 Full Audit.png" alt="UBSRV01 Screenshot" width="100%">
+  <img src="Screenshots/01. UBSRV01 Full Audit.png" alt="UBSRV01 Screenshot" width="100%">
 </details>
 
 ---
@@ -49,14 +49,14 @@ Two decisions in particular were made specifically to avoid locking myself out o
 <details>
   <summary>Click to view the Screenshot</summary>
   
-  <img src="Screenshots/sshKeyGen.png" alt="sshKeyGen Screenshot" width="100%">
+  <img src="Screenshots/07. sshKeyGen.png" alt="sshKeyGen Screenshot" width="100%">
 </details>
 
 - **UFW is explicitly allowed to permit SSH *before* the firewall is enabled**, inside the same remediation step — not as two separate steps a user could run out of order. A default-deny firewall enabled without an SSH allow rule first would have blocked the very connection being used to run the script.
 <details>
   <summary>Click to view the Screenshot</summary>
   
-  <img src="Screenshots/UFW checks.png" alt="UFW Checks Screenshot" width="100%">
+  <img src="Screenshots/06. UFW checks.png" alt="UFW Checks Screenshot" width="100%">
 </details>
 
 
@@ -116,7 +116,7 @@ scp harden.sh shalvin254@<target-ip>:~/Project3-hardening/
 <details>
   <summary>Screenshot showing fixed lines for SSH & UFW sections(UBSRV01)</summary>
   
-  <img srrc="Screenshots/UBSRV01 Audit&Remediation.png" alt="UBSRV01  Screenshot" width="100%">
+  <img srrc="Screenshots/03. UBSRV01 Audit&Remediation.png" alt="UBSRV01  Screenshot" width="100%">
 </details>
 
 ---
@@ -124,7 +124,7 @@ scp harden.sh shalvin254@<target-ip>:~/Project3-hardening/
 <details>
   <summary>Click to view UBDSK01 Audit</summary>
   
-  <img src="Screenshots/UBDSK01 last audit.png" alt="Audit Screenshot" width="100%">
+  <img src="Screenshots/06. UBDSK01 last audit.png" alt="Audit Screenshot" width="100%">
 </details>
 
 ---
@@ -133,7 +133,7 @@ scp harden.sh shalvin254@<target-ip>:~/Project3-hardening/
 <details>
   <summary>UBDSK01 Audit & Remediate</summary>
   
-  <img src="Screenshots/UFW checks.png" alt="UFW Screenshot" width="100%">
+  <img src="Screenshots/06. UFW checks.png" alt="UFW Screenshot" width="100%">
 </details>
 
 ---
