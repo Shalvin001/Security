@@ -116,7 +116,7 @@ scp harden.sh shalvin254@<target-ip>:~/Project3-hardening/
 <details>
   <summary>Script View from nano editor</summary></summary>
   
-  <img srrc="Screenshots/02. Nano View.png" alt="Script Nano View" width="100%">
+  <img src="Screenshots/02. Nano View.png" alt="Script Nano View" width="100%">
 </details>
 
 ---
