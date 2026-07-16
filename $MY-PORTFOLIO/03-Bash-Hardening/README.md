@@ -2,9 +2,9 @@
 
 ## 1. Overview
 
-This project is a Bash script (`harden.sh`) that audits and remediates Ubuntu systems against a subset of the CIS Ubuntu Benchmark. It targets two nodes in the home lab — **UBSRV01** (server) and **UBDSK01** (desktop) — using a single, portable script rather than two separate versions.
+This is a bash hardening project that uses a Bash script (`harden.sh`) that audits and remediates Ubuntu systems against a subset of the CIS Ubuntu Benchmark. It targets two nodes in the home lab — **UBSRV01** (server) and **UBDSK01** (desktop) — using a single, portable script rather than two separate versions.
 
-The script runs in one of two modes, passed as a command-line flag:
+The script runs in one of two modes, passed as a command line flag:
 
 - `--audit` — checks the system against 14 CIS-aligned controls and reports PASS/FAIL for each. Makes no changes.
 - `--remediate` — runs the same checks, but automatically fixes what it can. A small number of checks intentionally never auto-fix.  
