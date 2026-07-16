@@ -114,9 +114,9 @@ scp harden.sh shalvin254@<target-ip>:~/Project3-hardening/
 ```
 
 <details>
-  <summary>Screenshot showing fixed lines for SSH & UFW sections(UBSRV01)</summary>
+  <summary>Script View from nano editor</summary></summary>
   
-  <img srrc="Screenshots/03. UBSRV01 Audit&Remediation.png" alt="UBSRV01  Screenshot" width="100%">
+  <img srrc="Screenshots/02. Nano View.png" alt="Script Nano View" width="100%">
 </details>
 
 ---
